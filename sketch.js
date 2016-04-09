@@ -3,17 +3,15 @@ var noiseScale = 0.001;
 
 function setup() {
   createCanvas(440, 260);
-  m = new Mover();
+  m = new Mover(random(0.1, 5), 0, 0);
 }
 
 function draw() {
   background(51);
   //noise() takes  params value, valRangeMin, valRangeMax, desiredRangeMin,desiredRangeMax
-  var sideWindRate = noise(noiseScale,  0,1,0,width);
-  var wind = createVector(sideWindRate, 0);
+  var wind = createVector(0.01, 0);
+  var gravity = createVector(0, 0.1);
   console.log(wind);
- // var wind = createVector(sideWindRate, vertWindRate);
-  var gravity = createVector(0, 0.01);
   console.log(gravity);
   m.applyForce(wind);
   m.applyForce(gravity);
